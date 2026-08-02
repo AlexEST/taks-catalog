@@ -1,0 +1,18 @@
+{
+  "_comment": "Manual entries for suppliers whose prices are unreachable anonymously. Elektrum: product calculator sits behind Smart-ID login (verified 2026-08); quarterly prices, update by hand ~4x/year from public announcements. Set fetched_at to the verification date.",
+  "suppliers": [
+    {
+      "name": "Elektrum",
+      "packages": [
+        {
+          "id": "elektrum-kaljukindel", "name": "Kaljukindel (KASITSI - TAPSUSTA HIND)",
+          "type": "fixed", "rate_cents_kwh": null,
+          "margin_cents_kwh": null, "day_rate_cents_kwh": null, "night_rate_cents_kwh": null,
+          "monthly_fee_cents": null, "contract_months": null,
+          "source_url": "https://www.elektrum.ee/ee/eraklient",
+          "fetched_at": null
+        }
+      ]
+    }
+  ]
+}

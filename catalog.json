@@ -1,0 +1,25 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-08-02T15:45:36Z",
+ "suppliers": [
+  {
+   "name": "Enefit",
+   "packages": [
+    {
+     "id": "enefit-kindel-12",
+     "name": "Kindel 12 (KÄSITSI — TÄPSUSTA)",
+     "type": "fixed",
+     "rate_cents_kwh": null,
+     "margin_cents_kwh": null,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "monthly_fee_cents": null,
+     "contract_months": 12,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "fetched_at": null
+    }
+   ],
+   "stale": false
+  }
+ ]
+}

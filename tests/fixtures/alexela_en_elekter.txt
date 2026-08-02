@@ -1,0 +1,43 @@
+Choose Yourself
++ joint invoice with Elektrilevi network service
+Exchange price or fixed base price + margin
+Margin 0,46 c/kWh
+Monthly fee 2,02 €
+Flexible Fix
+Fixed basic price
+Daytime rate 12,6 c/kWh
+Nighttime rate 12,6 c/kWh
+Monthly fee 2,00 €
+Fixed Plan
+A fixed monthly fee for an agreed volume for 12 months
+Consumption price within the volume limit 0 s / kWh
+Price of consumption exceeding the volume limit 15,5 c/kWh
+Monthly fee 24,00 €
+Term fixed rate
+Fixed price for a period
+Contract term 9/12/36 months
+Daytime rate 12,8 c/kWh
+Nighttime rate 10,8 c/kWh
+Monthly fee 1,50 €
+Stressless
+Monthly fixed rate
+Base price 9,8 c/kWh
+Margin 0,723 c/kWh
+Monthly fee 2,06 €
+Virtual battery — 3 kWh
+Stored electricity price in the battery and market price + margin
+Margin 0,4 c/kWh
+Monthly fee 15,99 €
+Fixed price
+Fixed price (different rates for day and night)
+Daytime rate 14,9 c/kWh
+Nighttime rate 12 c/kWh
+Monthly fee 2,02 €
+Alexela's Home package
+Exchange rate + zero margin
+Margin 0 c/kWh
+Monthly fee 5,99 €
+Exchange rate electricity
+Exchange rate + margin
+Margin 0,47 c/kWh
+Monthly fee 2,02 €
