@@ -41,4 +41,11 @@ assert by_id["enefit-ee-spot-gr"]["margin_cents_kwh"] == round(1.19 / 1.24, 3)  
 assert by_id["enefit-ee-fix-12m-bl"]["type"] == "fixed"
 assert by_id["enefit-ee-fix-12m-bl"]["rate_cents_kwh"] == round(13.2 / 1.24, 3)  # latest salesMonth wins
 assert by_id["enefit-ee-fix-12m-bl"]["contract_months"] == 12
+
+# names come from BASE_NAMES, ids still come from the code
+assert by_id["enefit-ee-spot-bl"]["name"] == "Muutuv"
+assert by_id["enefit-ee-spot-gr"]["name"] == "Muutuv Roheline"
+assert by_id["enefit-ee-fix-12m-bl"]["name"] == "Kindel (12 kuud)"
+assert enefit._name("EE_FIX_24M_GR", 24) == "Kindel Roheline (24 kuud)"  # new term composes
+assert enefit._name("EE_HOOAEG_BL", None) == "Hooaeg Bl"                 # unmapped: old behaviour
 print("ALL TESTS PASSED,", len(entries), "packages:", sorted(by_id))
