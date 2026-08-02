@@ -20,21 +20,44 @@ Mapping:
   * SPECIAL family     -> skipped
   * EUR/MONTH rows     -> monthly_fee_cents
 
-VAT: !! VERIFY ON FIRST LIVE RUN !! Assumed VAT-inclusive (consumer-facing,
-consistent with Alexela's display and EE consumer price display rules);
-normalized to VAT-exclusive below. If widget UI proves otherwise, drop VAT.
+Names: the API carries none — `translation` holds the key "EE_FIX_12M", not a
+label — so BASE_NAMES below maps the code to what the ET page actually calls
+the product. Read off the live widget 2026-08 and confirmed by price, not by
+guesswork: the "Energiatootmise allikad" toggle flips every card between
+Tavaline and Roheline, which is exactly the _BL / _GR suffix.
+
+    Kindel, 36 kuud     12,90 s/kWh  = EE_FIX_36M_BL  10.403 x 1.24
+    Kindel Roheline     13,13 s/kWh  = EE_FIX_36M_GR  10.589 x 1.24
+    Muutuv              + 0,50       = EE_SPOT_BL      0.403 x 1.24
+    Muutuv Roheline     + 0,89       = EE_SPOT_GR      0.718 x 1.24
+
+The two skipped kinds are "Hinnalaega borsipakett" (*_CEILING_*) and the
+seasonal "Hooajakindel" (SPECIAL), neither of which reaches the catalogue.
+
+VAT: verified 2026-08, the four figures above are the page's own VAT-inclusive
+prices against this parser's output, so the /1.24 normalisation below is right.
 """
 from __future__ import annotations
 import datetime
+import re
 
 API_URL = ("https://iseteenindus.enefit.ee/api/v2/retail-products"
            "?country=EE&consumptionType=CONSUMER")
 SOURCE_URL = "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid"
 SUPPLIER = "Enefit"
-VAT = 1.24  # see VERIFY note above
+VAT = 1.24  # see VAT note above
 
 SKIP_FAMILIES = {"SPECIAL"}
 SKIP_CODE_SUBSTR = ("CEILING",)
+
+# Keyed by the code with its term stripped, so a new term (EE_FIX_24M_BL)
+# composes on its own and only a genuinely new product needs an entry here.
+BASE_NAMES = {
+    "SPOT_BL": "Muutuv",
+    "SPOT_GR": "Muutuv Roheline",
+    "FIX_BL": "Kindel",
+    "FIX_GR": "Kindel Roheline",
+}
 
 
 def _current_price(prices: list[dict]) -> float | None:
@@ -50,6 +73,16 @@ def _current_price(prices: list[dict]) -> float | None:
 
 def _ex_vat(v: float) -> float:
     return round(v / VAT, 3)
+
+
+def _name(code: str, length: int | None) -> str:
+    """Marketing name for a product code; unmapped codes keep the old
+    code-derived name, which reads as machine output and says "add me"."""
+    stripped = code.removeprefix("EE_")
+    marketing = BASE_NAMES.get(re.sub(r"_\d+M", "", stripped))
+    if marketing is None:
+        return stripped.replace("_", " ").title()
+    return f"{marketing} ({length} kuud)" if length else marketing
 
 
 def parse_payload(j: dict) -> list[dict]:
@@ -75,7 +108,7 @@ def parse_payload(j: dict) -> list[dict]:
                 continue
             entry = {
                 "id": "enefit-" + code.lower().replace("_", "-"),
-                "name": code.replace("EE_", "").replace("_", " ").title(),
+                "name": _name(code, p.get("length")),
                 "monthly_fee_cents": int(round(fee_eur * 100 / VAT)),
                 "contract_months": p.get("length"),
                 "source_url": SOURCE_URL,
