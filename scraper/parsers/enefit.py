@@ -61,6 +61,14 @@ SEASONAL_MARGIN_ROW_KEYS = ("EE_SPOT_MARGIN", "EE_SPOT_GREEN")
 # rate (the page promises it in August 2026), so the row key it will arrive
 # under is unknown and no cent/kWh row may be assumed to be it. Until the real
 # key is added here the package is withheld rather than half-priced.
+#
+# Re-checked against the live payload 2026-08-02: EE_FS_SPOT_GR still carries
+# exactly three rows -- EE_SPOT_MARGIN 0.9, EE_SPOT_GREEN 0.0, and the EUR/MONTH
+# EE_SPOT_MONTHLY_FEE 2.05 -- so the winter rate is genuinely absent, not
+# missed. One tell for whoever fills this in: the margin row's prices stop at
+# salesMonth 2026-09-01 while green and fee run to 2026-11-01, i.e. the payload
+# already knows the margin dies with September. The winter rate should show up
+# as a cent/kWh row priced from 2026-10-01.
 SEASONAL_FIXED_ROW_KEYS: tuple[str, ...] = ()
 
 # Keyed by the code with its term stripped, so a new term (EE_FIX_24M_BL)
@@ -116,8 +124,14 @@ def _seasonal_entry(p: dict, code: str) -> dict | None:
 
     Yields nothing while SEASONAL_FIXED_ROW_KEYS is empty, which is the point:
     the winter rate is not in the payload yet and picking whichever cent/kWh
-    row shows up next would publish a wrong price on the day it appears."""
+    row shows up next would publish a wrong price on the day it appears.
+
+    Withholding quietly forever would be its own bug, though -- nobody would
+    learn that Enefit had finally published. So a priced row this function
+    cannot place raises instead: Enefit goes stale for a day, CI goes red, the
+    notification names the key to add. That is the intended way to find out."""
     margin, rate, fee_eur = 0.0, None, 0.0
+    unplaceable = []
     for row in p.get("retailProductRows", []):
         price = _current_price(row.get("prices"))
         if price is None:
@@ -129,6 +143,15 @@ def _seasonal_entry(p: dict, code: str) -> dict | None:
             rate = price
         elif key in SEASONAL_MARGIN_ROW_KEYS:
             margin += price
+        else:
+            unplaceable.append(f"{key or '(unnamed)'}={price}"
+                               f" {row.get('currencySign')}/{row.get('unitOfMeasure')}")
+    if unplaceable:
+        raise RuntimeError(
+            f"{code}: price row(s) this parser cannot place: {', '.join(unplaceable)}. "
+            "Enefit's Hooajakindel winter rate was still unpublished at 2026-08; if "
+            "one of these is it, add its key to SEASONAL_FIXED_ROW_KEYS in enefit.py "
+            "and eyeball the first published record before trusting it.")
     if rate is None:
         return None
     return _base_entry(p, code, fee_eur) | {

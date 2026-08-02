@@ -41,8 +41,14 @@ apply are `null`. Cost of one kWh, given the hour's exchange price `spot`:
 `mixed` and `spot_months` arrived with schema 2 (2026-08), for Elektrum's
 Paindlik Klõps and Enefit's Hooajakindel. Version 1 consumers see no change to
 the three original types, but will meet `type` values they do not know.
-Hooajakindel is withheld until Enefit publishes its winter rate — see
-`SEASONAL_FIXED_ROW_KEYS` in `enefit.py`.
+
+`seasonal` has no live entry yet: Enefit had not published Hooajakindel's winter
+rate as of 2026-08-02 (re-checked against the API that day), so the package is
+withheld rather than published half-priced — see `SEASONAL_FIXED_ROW_KEYS` in
+`enefit.py`. The day a price row the parser cannot place shows up on that
+product, the run fails and names the row key instead of going on withholding
+quietly; Enefit's other packages hold their previous values as `stale` until
+the key is added. The first record it then publishes is worth reading by eye.
 
 ## Good-citizen rules
 robots.txt respected; identifying User-Agent linking here; one run per day;

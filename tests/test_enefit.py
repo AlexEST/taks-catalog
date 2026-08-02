@@ -1,8 +1,11 @@
-import sys, pathlib
+import copy, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / "scraper"))
 from parsers import enefit
 
-# Fixture mirrors the observed API shape (values from live inspection 2026-08-02)
+# Fixture mirrors the observed API shape (values from live inspection 2026-08-02).
+# The SPECIAL product is reproduced exactly as the live payload has it: three
+# rows, no winter rate, and a margin whose prices stop with September while the
+# green and fee rows run on to November.
 payload = {
   "retailProductFamilies": [
     {"familyCode": "SPOT", "retailProducts": [
@@ -22,17 +25,16 @@ payload = {
       {"code": "EE_FS_SPOT_GR", "length": None, "retailProductRows": [
         {"currencySign": "cent", "unitOfMeasure": "kWh",
          "translation": {"translation": "EE_SPOT_MARGIN"},
-         "prices": [{"salesMonth": "2026-08-01", "price": 0.9}]},
+         "prices": [{"salesMonth": "2026-08-01", "price": 0.9},
+                    {"salesMonth": "2026-09-01", "price": 0.9}]},
         {"currencySign": "cent", "unitOfMeasure": "kWh",
          "translation": {"translation": "EE_SPOT_GREEN"},
-         "prices": [{"salesMonth": "2026-08-01", "price": 0.0}]},
-        # stands in for the winter rate Enefit had not published as of 2026-08
-        {"currencySign": "cent", "unitOfMeasure": "kWh",
-         "translation": {"translation": "EE_FIX_WINTER"},
-         "prices": [{"salesMonth": "2026-08-01", "price": 14.88}]},
+         "prices": [{"salesMonth": "2026-08-01", "price": 0.0},
+                    {"salesMonth": "2026-11-01", "price": 0.0}]},
         {"currencySign": "EUR", "unitOfMeasure": "MONTH",
          "translation": {"translation": "EE_SPOT_MONTHLY_FEE"},
-         "prices": [{"salesMonth": "2026-08-01", "price": 2.05}]}]}]},
+         "prices": [{"salesMonth": "2026-08-01", "price": 2.05},
+                    {"salesMonth": "2026-11-01", "price": 2.05}]}]}]},
     {"familyCode": "FIX", "retailProducts": [
       {"code": "EE_FIX_12M_BL", "length": 12, "retailProductRows": [
         {"currencySign": "cent", "unitOfMeasure": "kWh",
@@ -62,18 +64,39 @@ assert by_id["enefit-ee-fix-12m-bl"]["name"] == "Kindel (12 kuud)"
 assert enefit._name("EE_FIX_24M_GR", 24) == "Kindel Roheline (24 kuud)"  # new term composes
 assert enefit._name("EE_HOOAEG_BL", None) == "Hooaeg Bl"                 # unmapped: old behaviour
 
-# Hooajakindel stays out while the winter rate's row key is unknown, even
-# though the fixture already contains a plausible-looking cent/kWh row
+# Today's payload: every seasonal row is placeable, none of them is the winter
+# rate, so Hooajakindel is withheld and the run stays green.
 assert "enefit-ee-fs-spot-gr" not in by_id
 assert enefit.SEASONAL_FIXED_ROW_KEYS == (), "the empty allowlist is the guard"
 
-# ... and prices correctly once the real key is known
+# The day Enefit publishes it, a cent/kWh row this parser cannot place appears.
+# It must not be silently ignored: withholding forever with a green CI is how
+# the package would stay missing for a year. The run fails and names the key.
+arrived = copy.deepcopy(payload)
+winter = {"currencySign": "cent", "unitOfMeasure": "kWh",
+          "translation": {"translation": "EE_FIX_WINTER"},
+          # priced from October, i.e. entirely in the future when it first shows
+          "prices": [{"salesMonth": "2026-10-01", "price": 14.88},
+                     {"salesMonth": "2026-11-01", "price": 14.88}]}
+arrived["retailProductFamilies"][1]["retailProducts"][0]["retailProductRows"].append(winter)
+try:
+    enefit.parse_payload(arrived)
+    raise AssertionError("an unplaceable seasonal row must fail the run, not vanish")
+except RuntimeError as e:
+    assert "EE_FIX_WINTER=14.88" in str(e), e
+    assert "SEASONAL_FIXED_ROW_KEYS" in str(e), e
+
+# ... and once the real key is known, it prices, even though every price entry
+# for the winter rate is still in the future.
 enefit.SEASONAL_FIXED_ROW_KEYS = ("EE_FIX_WINTER",)
-season = {e["id"]: e for e in enefit.parse_payload(payload)}["enefit-ee-fs-spot-gr"]
-assert season["name"] == "Hooajakindel" and season["type"] == "seasonal"
-assert season["rate_cents_kwh"] == round(14.88 / 1.24, 3)   # winter, Oct-Mar
-assert season["margin_cents_kwh"] == round(0.9 / 1.24, 3)   # summer, Apr-Sep
-assert season["spot_months"] == [4, 5, 6, 7, 8, 9]
-assert season["monthly_fee_cents"] == int(round(2.05 * 100 / 1.24))
+try:
+    season = {e["id"]: e for e in enefit.parse_payload(arrived)}["enefit-ee-fs-spot-gr"]
+    assert season["name"] == "Hooajakindel" and season["type"] == "seasonal"
+    assert season["rate_cents_kwh"] == round(14.88 / 1.24, 3)   # winter, Oct-Mar
+    assert season["margin_cents_kwh"] == round(0.9 / 1.24, 3)   # summer, Apr-Sep
+    assert season["spot_months"] == [4, 5, 6, 7, 8, 9]
+    assert season["monthly_fee_cents"] == int(round(2.05 * 100 / 1.24))
+finally:
+    enefit.SEASONAL_FIXED_ROW_KEYS = ()
 
 print("ALL TESTS PASSED,", len(entries), "packages:", sorted(by_id))
