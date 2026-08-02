@@ -14,6 +14,22 @@ PARSERS = {"Alexela": alexela.fetch_and_parse,
            "Elenger": elenger.fetch_and_parse}
 
 
+# Every package carries the whole field set in this order, whatever the parser
+# emitted: stable diffs in the price archive, and one place to add a schema
+# field instead of five. Unknown keys are kept, not dropped, at the end.
+PACKAGE_FIELDS = ("id", "name", "type",
+                  "rate_cents_kwh", "margin_cents_kwh",
+                  "day_rate_cents_kwh", "night_rate_cents_kwh",
+                  "fixed_share", "spot_months",
+                  "monthly_fee_cents", "contract_months",
+                  "source_url", "fetched_at")
+
+
+def normalize(pkg: dict) -> dict:
+    return ({f: pkg.get(f) for f in PACKAGE_FIELDS}
+            | {k: v for k, v in pkg.items() if k not in PACKAGE_FIELDS})
+
+
 def now() -> str:
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -69,7 +85,11 @@ def main() -> int:
             existing["packages"] = [p for p in existing["packages"] if p["id"] not in ids]
             existing["packages"] += os_["packages"]
 
-    catalog = {"schema_version": 1, "generated_at": now(),
+    for s in suppliers:
+        s["packages"] = [normalize(p) for p in s["packages"]]
+
+    # 2: adds types "mixed" and "seasonal" with their fixed_share / spot_months
+    catalog = {"schema_version": 2, "generated_at": now(),
                "suppliers": sorted(suppliers, key=lambda s: s["name"])}
     write_atomic(ROOT / "catalog.json",
                  json.dumps(catalog, indent=1, ensure_ascii=False) + "\n")

@@ -16,6 +16,7 @@ jobs:
       - run: python tests/test_alexela.py
       - run: python tests/test_elektrum.py
       - run: python tests/test_enefit.py
+      - run: python tests/test_main.py
       - run: python tests/test_viru_elenger.py
       - run: python scraper/main.py
       - name: commit if changed

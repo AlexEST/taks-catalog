@@ -9,10 +9,19 @@ def comp(type_, value_incl, value_excl, uom, zone=""):
             "uom": uom}
 
 
-def product(name, ptype, zones, price_lists, person="Private"):
-    return {"billing_product": {"id": "0", "name": name, "person_type": person,
-                                "product_type": ptype, "zone_count": zones,
-                                "price_lists": price_lists}}
+def product(name, ptype, zones, price_lists, person="Private", marketing=None):
+    p = {"billing_product": {"id": "0", "name": name, "person_type": person,
+                             "product_type": ptype, "zone_count": zones,
+                             "price_lists": price_lists}}
+    if marketing is not None:
+        p["marketing_product"] = marketing
+    return p
+
+
+# Elektrum states the hybrid split only in prose, per contract term
+MIX_MARKETING = {"name": "PAINDLIK KLÕPS", "intro": "", "descriptions": [
+    {"contract_term": 12, "text": "<ul>\r\n<li>Iga tarbitud kWh hinnast on<br />"
+     "<strong>50% fikseeritud</strong> ja <strong>50% börsihind</strong>;</li></ul>"}]}
 
 
 FEE = comp("EE-EEMAB", "1.91", "1.54", "EUR/kuus")
@@ -41,7 +50,14 @@ payload = {"status": 200, "products": [
     product("PAINDLIK KLÕPS MIX", "MIXED", "INT", [
         {"contract_term": 12, "contract_start_date": "2026-08-01 00:00:00", "components": [
             comp("EE-U-EEV", "16.572", "13.367", "s/kWh", "single"),
-            comp("EE-INTHF", "0.553", "0.446", "s/kWh"), FEE]}]),
+            comp("EE-INTHF", "0.553", "0.446", "s/kWh"), FEE]}],
+            marketing=MIX_MARKETING),
+    # same shape, but nothing states the split -> must not be priced at all
+    product("VAIKNE MIX", "MIXED", "INT", [
+        {"contract_term": 12, "contract_start_date": "2026-08-01 00:00:00", "components": [
+            comp("EE-U-EEV", "16.572", "13.367", "s/kWh", "single"),
+            comp("EE-INTHF", "0.553", "0.446", "s/kWh"), FEE]}],
+            marketing={"name": "VAIKNE MIX", "intro": "", "descriptions": []}),
     product("ROHELINE KLÕPS", "FIXED", "1", [
         {"contract_term": 12, "contract_start_date": "2026-08-01 00:00:00", "components": [
             {"name": "EE Green Energy (PRI)", "category": "other", "type": "GREENEE",
@@ -57,10 +73,11 @@ payload = {"status": 200, "products": [
 entries = elektrum.parse_payload(payload)
 by_id = {e["id"]: e for e in entries}
 
-# hybrid, green and business products skipped; one entry per contract term
-assert len(entries) == 4, sorted(by_id)
+# green, business and split-less hybrid skipped; one entry per contract term
+assert len(entries) == 5, sorted(by_id)
 assert sorted(by_id) == ["elektrum-borsi-klops", "elektrum-kaljukindel-klops",
-                         "elektrum-kasulik-klops-24m", "elektrum-kasulik-klops-9m"]
+                         "elektrum-kasulik-klops-24m", "elektrum-kasulik-klops-9m",
+                         "elektrum-paindlik-klops-12m"]
 
 k = by_id["elektrum-kaljukindel-klops"]
 assert k["name"] == "Kaljukindel Klõps"
@@ -76,6 +93,18 @@ assert d["monthly_fee_cents"] == 154
 s = by_id["elektrum-borsi-klops"]
 assert s["type"] == "spot" and s["margin_cents_kwh"] == 0.43
 assert s["rate_cents_kwh"] is None             # EE-V-EEV is a market quote, not a rate
+
+m = by_id["elektrum-paindlik-klops-12m"]
+assert m["name"] == "Paindlik Klõps (12 kuud)"  # marketing name, not "... MIX"
+assert m["type"] == "mixed" and m["fixed_share"] == 0.5
+assert (m["rate_cents_kwh"], m["margin_cents_kwh"]) == (13.367, 0.446)
+
+# the split is read from the copy, in either wording, and never assumed
+assert elektrum._fixed_share(MIX_MARKETING, 12) == 0.5
+assert elektrum._fixed_share(
+    {"intro": "<strong>50%</strong> hinnast on fikseeritud ja<br>..."}, 12) == 0.5
+assert elektrum._fixed_share(MIX_MARKETING, 9) is None      # wrong term, no intro
+assert elektrum._fixed_share({"intro": "100% fikseeritud"}, 12) is None
 
 # VAT-exclusive values come from the API; division is the fallback path only
 assert elektrum._ex_vat({"charge_value": "12.40"}) == 10.0
