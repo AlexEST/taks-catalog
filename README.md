@@ -23,8 +23,26 @@ breaking the published file.
 | 220 Energia | — merged into Alexela | invoices issued as AS Alexela; covered by the Alexela parser |
 
 Non-backtestable package types (volume plans, virtual battery,
-monthly-changing base rates, fixed/spot hybrids, and packages whose green
+monthly-changing base rates, price-ceiling products, and packages whose green
 surcharge is priced outside the energy component) are intentionally excluded.
+
+## Package types (`schema_version: 2`)
+Every package carries the full field set in a fixed order; fields that do not
+apply are `null`. Cost of one kWh, given the hour's exchange price `spot`:
+
+| `type` | cost per kWh | fields that matter |
+|---|---|---|
+| `fixed` | `rate` | `rate_cents_kwh` |
+| `day_night` | `day` or `night` by hour | `day_rate_cents_kwh`, `night_rate_cents_kwh` |
+| `spot` | `spot + margin` | `margin_cents_kwh` |
+| `mixed` | `share * rate + (1 - share) * (spot + margin)` | `rate_cents_kwh`, `margin_cents_kwh`, `fixed_share` |
+| `seasonal` | `spot + margin` in `spot_months`, `rate` otherwise | `rate_cents_kwh`, `margin_cents_kwh`, `spot_months` |
+
+`mixed` and `spot_months` arrived with schema 2 (2026-08), for Elektrum's
+Paindlik Klõps and Enefit's Hooajakindel. Version 1 consumers see no change to
+the three original types, but will meet `type` values they do not know.
+Hooajakindel is withheld until Enefit publishes its winter rate — see
+`SEASONAL_FIXED_ROW_KEYS` in `enefit.py`.
 
 ## Good-citizen rules
 robots.txt respected; identifying User-Agent linking here; one run per day;
