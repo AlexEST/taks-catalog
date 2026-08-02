@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-08-02T16:20:05Z",
+ "generated_at": "2026-08-02T16:24:41Z",
  "suppliers": [
   {
    "name": "Alexela",
@@ -17,7 +17,7 @@
      "rate_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:19:59Z"
+     "fetched_at": "2026-08-02T16:24:38Z"
     },
     {
      "id": "alexela-flexible-fix",
@@ -30,7 +30,7 @@
      "night_rate_cents_kwh": 10.161,
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:19:59Z"
+     "fetched_at": "2026-08-02T16:24:38Z"
     },
     {
      "id": "alexela-term-fixed-rate",
@@ -43,7 +43,7 @@
      "night_rate_cents_kwh": 8.71,
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:19:59Z"
+     "fetched_at": "2026-08-02T16:24:38Z"
     },
     {
      "id": "alexela-fixed-price",
@@ -56,7 +56,7 @@
      "night_rate_cents_kwh": 9.677,
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:19:59Z"
+     "fetched_at": "2026-08-02T16:24:38Z"
     },
     {
      "id": "alexela-exchange-rate-electricity",
@@ -69,7 +69,7 @@
      "rate_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:19:59Z"
+     "fetched_at": "2026-08-02T16:24:38Z"
     }
    ]
   },
@@ -107,7 +107,7 @@
      "monthly_fee_cents": 0,
      "contract_months": null,
      "source_url": "https://elenger.ee/en/estonian-gas/electricity/",
-     "fetched_at": "2026-08-02T16:20:05Z"
+     "fetched_at": "2026-08-02T16:24:41Z"
     }
    ]
   },
@@ -126,7 +126,7 @@
      "type": "spot",
      "margin_cents_kwh": 0.403,
      "rate_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-spot-gr",
@@ -139,7 +139,7 @@
      "type": "spot",
      "margin_cents_kwh": 0.718,
      "rate_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-fix-36m-gr",
@@ -152,7 +152,7 @@
      "type": "fixed",
      "rate_cents_kwh": 10.589,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-fix-12m-gr",
@@ -165,7 +165,7 @@
      "type": "fixed",
      "rate_cents_kwh": 11.855,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-fix-12m-bl",
@@ -178,7 +178,7 @@
      "type": "fixed",
      "rate_cents_kwh": 11.694,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-fix-36m-bl",
@@ -191,7 +191,7 @@
      "type": "fixed",
      "rate_cents_kwh": 10.403,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-fix-9m-bl",
@@ -204,7 +204,7 @@
      "type": "fixed",
      "rate_cents_kwh": 12.5,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     },
     {
      "id": "enefit-ee-fix-9m-gr",
@@ -217,7 +217,7 @@
      "type": "fixed",
      "rate_cents_kwh": 12.702,
      "margin_cents_kwh": null,
-     "fetched_at": "2026-08-02T16:20:02Z"
+     "fetched_at": "2026-08-02T16:24:39Z"
     }
    ]
   },
@@ -236,7 +236,7 @@
      "type": "day_night",
      "monthly_fee_cents": 154,
      "contract_months": 8,
-     "fetched_at": "2026-08-02T16:20:04Z"
+     "fetched_at": "2026-08-02T16:24:40Z"
     },
     {
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
@@ -249,7 +249,7 @@
      "type": "fixed",
      "monthly_fee_cents": 154,
      "contract_months": 8,
-     "fetched_at": "2026-08-02T16:20:04Z"
+     "fetched_at": "2026-08-02T16:24:40Z"
     },
     {
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
@@ -262,7 +262,7 @@
      "type": "spot",
      "monthly_fee_cents": 142,
      "contract_months": null,
-     "fetched_at": "2026-08-02T16:20:04Z"
+     "fetched_at": "2026-08-02T16:24:40Z"
     },
     {
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
@@ -275,7 +275,7 @@
      "type": "spot",
      "monthly_fee_cents": 0,
      "contract_months": null,
-     "fetched_at": "2026-08-02T16:20:04Z"
+     "fetched_at": "2026-08-02T16:24:40Z"
     }
    ]
   }
