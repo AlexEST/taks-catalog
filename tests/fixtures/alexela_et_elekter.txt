@@ -1,0 +1,95 @@
+Nutikas valik
+Vali ise
++ ühisarve Elektrilevi võrguteenustega
+Börsihind või fikseeritud baashind + marginaal
+Vabadus valida igakuiselt sobiv hinnastuse viis
+Tähtajatu elektripakett
+Marginaal 0,46 s/kWh
+Kuutasu 2,02 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Nutikas valik
+Paindlik fiks
++ ühisarve Elektrilevi võrguteenustega
+Fikseeritud hind 12 kuuks
+Võimalus fikseeritud hinda nutika tarbimisega vähendada
+Riskivabam kui börsipakett, paindlikum kui fikseeritud pakett
+Päeva hind 12,6 s/kWh
+Öö hind 12,6 s/kWh
+Kuutasu 2,00 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Nutikas valik
+Kindel maht
++ ühisarve Elektrilevi võrguteenustega
+Ühisarve Elektrilevi võrguteenusega
+Fikseeritud kuutasu kokkulepitud mahule 12 kuuks
+Maksad lisaks vaid mahtu ületatud kWh eest
+Tarbimise hind mahu piires 0 s / kWh
+Kuutasu alusel tarbitav maht 200 kWh
+Mahtu ületava tarbimise hind 15,5 s/kWh
+Kuutasu 24,00 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Klientide lemmik
+Tähtajaline fikseeritud hind
++ ühisarve Elektrilevi võrguteenustega
+Perioodiks fikseeritud hind
+Lepingu periood 9/12/36 kuud
+Pikaajaline kindlustunne
+Päeva hind 12,8 s/kWh
+Öö hind 10,8 s/kWh
+Kuutasu 1,50 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Nutikas valik
+Klientide lemmik
+Pingevaba
++ ühisarve Elektrilevi võrguteenustega
+Kuupõhiselt fikseeritud hind
+Riskivabam kui börsipakett
+Leping tähtajatu
+Baashind 9,8 s/kWh
+Marginaal 0,723 s/kWh
+Kuutasu 2,06 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Nutikas valik
+Virtuaalaku - 3kwh
++ ühisarve Elektrilevi võrguteenustega
+Akusse salvestatud elektrihind ja börsihind + marginaal
+Saad osa virtuaalakust ilma investeeringut tegemata
+Tähtajatu elektripakett
+Marginaal 0,4 s/kWh
+Kuutasu 15,99 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Fikseeritud hinnaga elekter
++ ühisarve Elektrilevi võrguteenustega
+Kindel hind (päev ja öö eraldi)
+6-kuuline hinnaperiood
+Ilma ennetähtaegse lõpetamise tasuta
+Päeva hind 14,9 s/kWh
+Öö hind 12 s/kWh
+Kuutasu 2,02 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Alexela Kodupakett elekter
++ ühisarve Elektrilevi võrguteenustega
+Börsihind + 0 marginaal
+Hind muutub iga 15 minuti tagant
+Leping tähtajatu
+Eelmise kuu keskmine börsihind 8,23 s/kWh
+Kuutasu 5,99 €
+Jätka iseteeninduses
+Detailne paketiinfo
+Börsihinnaga elekter
++ ühisarve Elektrilevi võrguteenustega
+Börsihind + marginaal
+Leping tähtajatu
+Juhid enda tarbimist
+Marginaal 0,47 s/kWh
+Eelmise kuu keskmine börsihind 8,23 s/kWh
+Kuutasu 2,02 €
+Jätka iseteeninduses
+Detailne paketiinfo

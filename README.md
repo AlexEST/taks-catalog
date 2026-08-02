@@ -15,7 +15,7 @@ breaking the published file.
 ## Supplier status (recon 2026-08)
 | Supplier | Method | Notes |
 |---|---|---|
-| Alexela | parser (`alexela.py`) | server-rendered Drupal, text-level labeled parsing, verified |
+| Alexela | parser (`alexela.py`) | server-rendered Drupal, text-level labeled parsing, verified. Reads the ET page: until 2026-08 it read `/en/` and published English package names, so the ids changed with the locale (`alexela-exchange-rate-electricity` -> `alexela-borsihinnaga-elekter`, and so on for all five). Prices were unaffected |
 | Enefit | parser (`enefit.py`) | anonymous self-service API `iseteenindus.enefit.ee/api/v2/retail-products` discovered via XHR inspection 2026-08; VAT-inclusive, confirmed against the ET page; API ships no product names, so `BASE_NAMES` maps codes to the page's own labels |
 | Elektrum | parser (`elektrum.py`) | public calculator API `minu.elektrum.ee/api/products`, found 2026-08 in the package page's `data-api-endpoints`; Smart-ID gates signing, not prices; ships VAT-exclusive values; quarterly Kaljukindel price rolls over on its own |
 | Viru Elektrivõrgud (ex-VKG) | parser (`viru.py`) | server-rendered WordPress, ET labeled parsing, VAT-incl stated on page; sells nationwide despite Narva DSO roots |
