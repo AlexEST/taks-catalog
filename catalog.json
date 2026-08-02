@@ -7,8 +7,8 @@
    "stale": false,
    "packages": [
     {
-     "id": "alexela-choose-yourself",
-     "name": "Choose Yourself",
+     "id": "alexela-vali-ise",
+     "name": "Vali ise",
      "type": "spot",
      "rate_cents_kwh": null,
      "margin_cents_kwh": 0.371,
@@ -18,12 +18,12 @@
      "spot_months": null,
      "monthly_fee_cents": 163,
      "contract_months": null,
-     "source_url": "https://www.alexela.ee/en/elekter",
-     "fetched_at": "2026-08-02T16:44:58Z"
+     "source_url": "https://www.alexela.ee/et/elekter",
+     "fetched_at": "2026-08-02T19:35:05Z"
     },
     {
-     "id": "alexela-flexible-fix",
-     "name": "Flexible Fix",
+     "id": "alexela-paindlik-fiks",
+     "name": "Paindlik fiks",
      "type": "day_night",
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
@@ -33,12 +33,12 @@
      "spot_months": null,
      "monthly_fee_cents": 161,
      "contract_months": null,
-     "source_url": "https://www.alexela.ee/en/elekter",
-     "fetched_at": "2026-08-02T16:44:58Z"
+     "source_url": "https://www.alexela.ee/et/elekter",
+     "fetched_at": "2026-08-02T19:35:05Z"
     },
     {
-     "id": "alexela-term-fixed-rate",
-     "name": "Term fixed rate",
+     "id": "alexela-tahtajaline-fikseeritud-hind",
+     "name": "Tähtajaline fikseeritud hind",
      "type": "day_night",
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
@@ -48,12 +48,12 @@
      "spot_months": null,
      "monthly_fee_cents": 121,
      "contract_months": null,
-     "source_url": "https://www.alexela.ee/en/elekter",
-     "fetched_at": "2026-08-02T16:44:58Z"
+     "source_url": "https://www.alexela.ee/et/elekter",
+     "fetched_at": "2026-08-02T19:35:05Z"
     },
     {
-     "id": "alexela-fixed-price",
-     "name": "Fixed price",
+     "id": "alexela-fikseeritud-hinnaga-elekter",
+     "name": "Fikseeritud hinnaga elekter",
      "type": "day_night",
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
@@ -63,12 +63,12 @@
      "spot_months": null,
      "monthly_fee_cents": 163,
      "contract_months": null,
-     "source_url": "https://www.alexela.ee/en/elekter",
-     "fetched_at": "2026-08-02T16:44:58Z"
+     "source_url": "https://www.alexela.ee/et/elekter",
+     "fetched_at": "2026-08-02T19:35:05Z"
     },
     {
-     "id": "alexela-exchange-rate-electricity",
-     "name": "Exchange rate electricity",
+     "id": "alexela-borsihinnaga-elekter",
+     "name": "Börsihinnaga elekter",
      "type": "spot",
      "rate_cents_kwh": null,
      "margin_cents_kwh": 0.379,
@@ -78,8 +78,8 @@
      "spot_months": null,
      "monthly_fee_cents": 163,
      "contract_months": null,
-     "source_url": "https://www.alexela.ee/en/elekter",
-     "fetched_at": "2026-08-02T16:44:58Z"
+     "source_url": "https://www.alexela.ee/et/elekter",
+     "fetched_at": "2026-08-02T19:35:05Z"
     }
    ]
   },
