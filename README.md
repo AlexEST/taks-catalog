@@ -18,7 +18,7 @@ breaking the published file.
 | Alexela | parser (`alexela.py`) | server-rendered Drupal, text-level labeled parsing, verified |
 | Enefit | parser (`enefit.py`) | anonymous self-service API `iseteenindus.enefit.ee/api/v2/retail-products` discovered via XHR inspection 2026-08; VAT status to verify on first live run |
 | Elektrum | parser (`elektrum.py`) | public calculator API `minu.elektrum.ee/api/products`, found 2026-08 in the package page's `data-api-endpoints`; Smart-ID gates signing, not prices; ships VAT-exclusive values; quarterly Kaljukindel price rolls over on its own |
-| Viru Elektrivorgud (ex-VKG) | parser (`viru.py`) | server-rendered WordPress, ET labeled parsing, VAT-incl stated on page; sells nationwide despite Narva DSO roots |
+| Viru Elektrivõrgud (ex-VKG) | parser (`viru.py`) | server-rendered WordPress, ET labeled parsing, VAT-incl stated on page; sells nationwide despite Narva DSO roots |
 | Elenger | parser (`elenger.py`) | spot margin public in HTML; fixed packages are quote-only ("from X") and intentionally not catalogued |
 | 220 Energia | — merged into Alexela | invoices issued as AS Alexela; covered by the Alexela parser |
 
