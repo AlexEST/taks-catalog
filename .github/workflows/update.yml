@@ -14,6 +14,7 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
       - run: python tests/test_alexela.py
+      - run: python tests/test_elektrum.py
       - run: python tests/test_enefit.py
       - run: python tests/test_viru_elenger.py
       - run: python scraper/main.py

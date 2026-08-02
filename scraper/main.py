@@ -1,13 +1,14 @@
 """taks-catalog orchestrator: parsers + manual overrides -> catalog.json"""
-import json, sys, pathlib, datetime
+import json, os, sys, pathlib, datetime
 import requests
 
 ROOT = pathlib.Path(__file__).parent.parent
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from parsers import alexela, enefit, viru, elenger
+from parsers import alexela, elektrum, enefit, viru, elenger
 
 UA = "TaksCatalogBot/1.0 (+https://github.com/AlexEST/taks-catalog)"
 PARSERS = {"Alexela": alexela.fetch_and_parse,
+           "Elektrum": elektrum.fetch_and_parse,  # overrides UA, see elektrum.py
            "Enefit": enefit.fetch_and_parse,
            "Viru Elektrivorgud": viru.fetch_and_parse,
            "Elenger": elenger.fetch_and_parse}
@@ -18,7 +19,21 @@ def now() -> str:
 
 
 def load_json(p: pathlib.Path, default):
-    return json.loads(p.read_text()) if p.exists() else default
+    # explicit utf-8: package names carry Estonian letters and the default
+    # locale encoding is not utf-8 everywhere (cp1251 on the maintainer's box)
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else default
+
+
+def write_atomic(p: pathlib.Path, text: str) -> None:
+    """Temp file + os.replace, so a write that dies halfway (disk full, encoding
+    error, killed job) leaves the published catalog.json untouched rather than
+    truncated. os.replace is atomic on POSIX and on Windows."""
+    tmp = p.with_name(p.name + ".tmp")
+    try:
+        tmp.write_text(text, encoding="utf-8")
+        os.replace(tmp, p)
+    finally:
+        tmp.unlink(missing_ok=True)  # no-op after a successful replace
 
 
 def main() -> int:
@@ -56,8 +71,8 @@ def main() -> int:
 
     catalog = {"schema_version": 1, "generated_at": now(),
                "suppliers": sorted(suppliers, key=lambda s: s["name"])}
-    (ROOT / "catalog.json").write_text(
-        json.dumps(catalog, indent=1, ensure_ascii=False) + "\n")
+    write_atomic(ROOT / "catalog.json",
+                 json.dumps(catalog, indent=1, ensure_ascii=False) + "\n")
 
     print(f"OK: {sum(len(s['packages']) for s in suppliers)} packages, "
           f"{len(suppliers)} suppliers")
