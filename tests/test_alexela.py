@@ -2,7 +2,8 @@ import sys, json, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / "scraper"))
 from parsers import alexela
 
-text = (pathlib.Path(__file__).parent / "fixtures/alexela_en_elekter.txt").read_text()
+text = (pathlib.Path(__file__).parent
+        / "fixtures/alexela_en_elekter.txt").read_text(encoding="utf-8")
 entries = alexela.parse(text)
 by_name = {e["name"]: e for e in entries}
 
