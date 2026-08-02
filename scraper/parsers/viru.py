@@ -1,8 +1,8 @@
-"""Viru Elektrivorgud (ex-VKG) parser.
+"""Viru Elektrivõrgud (ex-VKG) parser.
 
 Verified 2026-08: https://viruev.ee/elektrimuuk/elektrienergia-pakett/
 is server-rendered WordPress; prices in HTML, explicitly VAT-inclusive
-("kaibemaksuga"). Estonian labeled-text parsing.
+("käibemaksuga"). Estonian labeled-text parsing.
 
 Packages observed:
   Viru Kindel  -> fixed, N-month term, 1-tariff and 2-tariff variants
@@ -13,7 +13,7 @@ from __future__ import annotations
 import re
 
 SOURCE_URL = "https://viruev.ee/elektrimuuk/elektrienergia-pakett/"
-SUPPLIER = "Viru Elektrivorgud"
+SUPPLIER = "Viru Elektrivõrgud"
 VAT = 1.24
 
 RX_TERM = re.compile(r"Fikseeritud hind.*?(\d+)\s*kuud", re.S | re.I)

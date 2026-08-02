@@ -10,7 +10,7 @@ UA = "TaksCatalogBot/1.0 (+https://github.com/AlexEST/taks-catalog)"
 PARSERS = {"Alexela": alexela.fetch_and_parse,
            "Elektrum": elektrum.fetch_and_parse,  # overrides UA, see elektrum.py
            "Enefit": enefit.fetch_and_parse,
-           "Viru Elektrivorgud": viru.fetch_and_parse,
+           "Viru Elektrivõrgud": viru.fetch_and_parse,
            "Elenger": elenger.fetch_and_parse}
 
 
