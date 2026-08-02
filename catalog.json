@@ -1,25 +1,283 @@
 {
  "schema_version": 1,
- "generated_at": "2026-08-02T15:45:36Z",
+ "generated_at": "2026-08-02T16:20:05Z",
  "suppliers": [
   {
-   "name": "Enefit",
+   "name": "Alexela",
+   "stale": false,
    "packages": [
     {
-     "id": "enefit-kindel-12",
-     "name": "Kindel 12 (KÄSITSI — TÄPSUSTA)",
+     "id": "alexela-choose-yourself",
+     "name": "Choose Yourself",
+     "monthly_fee_cents": 163,
+     "contract_months": null,
+     "source_url": "https://www.alexela.ee/en/elekter",
+     "type": "spot",
+     "margin_cents_kwh": 0.371,
+     "rate_cents_kwh": null,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:19:59Z"
+    },
+    {
+     "id": "alexela-flexible-fix",
+     "name": "Flexible Fix",
+     "monthly_fee_cents": 161,
+     "contract_months": null,
+     "source_url": "https://www.alexela.ee/en/elekter",
+     "type": "day_night",
+     "day_rate_cents_kwh": 10.161,
+     "night_rate_cents_kwh": 10.161,
+     "rate_cents_kwh": null,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:19:59Z"
+    },
+    {
+     "id": "alexela-term-fixed-rate",
+     "name": "Term fixed rate",
+     "monthly_fee_cents": 121,
+     "contract_months": null,
+     "source_url": "https://www.alexela.ee/en/elekter",
+     "type": "day_night",
+     "day_rate_cents_kwh": 10.323,
+     "night_rate_cents_kwh": 8.71,
+     "rate_cents_kwh": null,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:19:59Z"
+    },
+    {
+     "id": "alexela-fixed-price",
+     "name": "Fixed price",
+     "monthly_fee_cents": 163,
+     "contract_months": null,
+     "source_url": "https://www.alexela.ee/en/elekter",
+     "type": "day_night",
+     "day_rate_cents_kwh": 12.016,
+     "night_rate_cents_kwh": 9.677,
+     "rate_cents_kwh": null,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:19:59Z"
+    },
+    {
+     "id": "alexela-exchange-rate-electricity",
+     "name": "Exchange rate electricity",
+     "monthly_fee_cents": 163,
+     "contract_months": null,
+     "source_url": "https://www.alexela.ee/en/elekter",
+     "type": "spot",
+     "margin_cents_kwh": 0.379,
+     "rate_cents_kwh": null,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:19:59Z"
+    }
+   ]
+  },
+  {
+   "name": "Elektrum",
+   "packages": [
+    {
+     "id": "elektrum-kaljukindel",
+     "name": "Kaljukindel (KASITSI - TAPSUSTA HIND)",
      "type": "fixed",
      "rate_cents_kwh": null,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
      "monthly_fee_cents": null,
-     "contract_months": 12,
-     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "contract_months": null,
+     "source_url": "https://www.elektrum.ee/ee/eraklient",
      "fetched_at": null
     }
    ],
    "stale": false
+  },
+  {
+   "name": "Elenger",
+   "stale": false,
+   "packages": [
+    {
+     "id": "elenger-exchange",
+     "name": "Elenger Exchange",
+     "type": "spot",
+     "margin_cents_kwh": 0.54,
+     "rate_cents_kwh": null,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "monthly_fee_cents": 0,
+     "contract_months": null,
+     "source_url": "https://elenger.ee/en/estonian-gas/electricity/",
+     "fetched_at": "2026-08-02T16:20:05Z"
+    }
+   ]
+  },
+  {
+   "name": "Enefit",
+   "stale": false,
+   "packages": [
+    {
+     "id": "enefit-ee-spot-bl",
+     "name": "Spot Bl",
+     "monthly_fee_cents": 165,
+     "contract_months": null,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "spot",
+     "margin_cents_kwh": 0.403,
+     "rate_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-spot-gr",
+     "name": "Spot Gr",
+     "monthly_fee_cents": 165,
+     "contract_months": null,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "spot",
+     "margin_cents_kwh": 0.718,
+     "rate_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-fix-36m-gr",
+     "name": "Fix 36M Gr",
+     "monthly_fee_cents": 165,
+     "contract_months": 36,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "fixed",
+     "rate_cents_kwh": 10.589,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-fix-12m-gr",
+     "name": "Fix 12M Gr",
+     "monthly_fee_cents": 165,
+     "contract_months": 12,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "fixed",
+     "rate_cents_kwh": 11.855,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-fix-12m-bl",
+     "name": "Fix 12M Bl",
+     "monthly_fee_cents": 165,
+     "contract_months": 12,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "fixed",
+     "rate_cents_kwh": 11.694,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-fix-36m-bl",
+     "name": "Fix 36M Bl",
+     "monthly_fee_cents": 165,
+     "contract_months": 36,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "fixed",
+     "rate_cents_kwh": 10.403,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-fix-9m-bl",
+     "name": "Fix 9M Bl",
+     "monthly_fee_cents": 165,
+     "contract_months": 9,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "fixed",
+     "rate_cents_kwh": 12.5,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    },
+    {
+     "id": "enefit-ee-fix-9m-gr",
+     "name": "Fix 9M Gr",
+     "monthly_fee_cents": 165,
+     "contract_months": 9,
+     "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "type": "fixed",
+     "rate_cents_kwh": 12.702,
+     "margin_cents_kwh": null,
+     "fetched_at": "2026-08-02T16:20:02Z"
+    }
+   ]
+  },
+  {
+   "name": "Viru Elektrivorgud",
+   "stale": false,
+   "packages": [
+    {
+     "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
+     "margin_cents_kwh": null,
+     "rate_cents_kwh": null,
+     "day_rate_cents_kwh": 11.306,
+     "night_rate_cents_kwh": 9.887,
+     "id": "viru-kindel-2tar",
+     "name": "Viru Kindel (2-tariifne)",
+     "type": "day_night",
+     "monthly_fee_cents": 154,
+     "contract_months": 8,
+     "fetched_at": "2026-08-02T16:20:04Z"
+    },
+    {
+     "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
+     "margin_cents_kwh": null,
+     "rate_cents_kwh": 10.597,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "id": "viru-kindel-1tar",
+     "name": "Viru Kindel (1-tariifne)",
+     "type": "fixed",
+     "monthly_fee_cents": 154,
+     "contract_months": 8,
+     "fetched_at": "2026-08-02T16:20:04Z"
+    },
+    {
+     "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
+     "margin_cents_kwh": 0.452,
+     "rate_cents_kwh": null,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "id": "viru-vaba-korter",
+     "name": "Viru Vaba (Korter)",
+     "type": "spot",
+     "monthly_fee_cents": 142,
+     "contract_months": null,
+     "fetched_at": "2026-08-02T16:20:04Z"
+    },
+    {
+     "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
+     "margin_cents_kwh": 0.625,
+     "rate_cents_kwh": null,
+     "day_rate_cents_kwh": null,
+     "night_rate_cents_kwh": null,
+     "id": "viru-vaba-maja",
+     "name": "Viru Vaba (Maja)",
+     "type": "spot",
+     "monthly_fee_cents": 0,
+     "contract_months": null,
+     "fetched_at": "2026-08-02T16:20:04Z"
+    }
+   ]
   }
  ]
 }
