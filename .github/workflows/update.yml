@@ -1,7 +1,7 @@
 name: update-catalog
 on:
   schedule:
-    - cron: "17 4 * * *"   # daily 04:17 UTC = 06:17/07:17 Tallinn
+    - cron: "43 3 * * *"   # daily 03:43 UTC = 05:43/06:43 Tallinn
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -18,11 +18,30 @@ jobs:
       - run: python tests/test_enefit.py
       - run: python tests/test_main.py
       - run: python tests/test_viru_elenger.py
-      - run: python scraper/main.py
+      # exit 1 from main.py means "a supplier failed, previous data kept" -- catalog.json
+      # is still written and worth committing, so swallow it here and re-raise at the end.
+      - id: scrape
+        run: python scraper/main.py
+        continue-on-error: true
       - name: commit if changed
         run: |
           git config user.name "taks-catalog-bot"
           git config user.email "actions@users.noreply.github.com"
           git add catalog.json
-          git diff --cached --quiet || git commit -m "catalog update $(date -u +%F)"
-          git push
+          if git diff --cached --quiet; then
+            echo "catalog.json unchanged, nothing to commit"
+            exit 0
+          fi
+          git commit -m "catalog update $(date -u +%F)"
+          # A re-run checks out the original head_sha, so main can already be ahead of
+          # us; same for two runs overlapping. Rebase and retry instead of dying on
+          # non-fast-forward. -X theirs = the freshly scraped catalog.json wins, and a
+          # rebase that ends up empty just drops the commit and pushes nothing.
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
+      - name: mark red if any supplier failed
+        if: steps.scrape.outcome == 'failure'
+        run: exit 1
