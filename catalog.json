@@ -1,6 +1,6 @@
 {
  "schema_version": 2,
- "generated_at": "2026-09-10T08:23:02Z",
+ "generated_at": "2026-09-11T08:17:35Z",
  "suppliers": [
   {
    "name": "Alexela",
@@ -19,7 +19,7 @@
      "monthly_fee_cents": 121,
      "contract_months": null,
      "source_url": "https://www.alexela.ee/et/elekter",
-     "fetched_at": "2026-09-10T08:22:57Z"
+     "fetched_at": "2026-09-11T08:17:30Z"
     },
     {
      "id": "alexela-vali-ise",
@@ -34,7 +34,7 @@
      "monthly_fee_cents": 163,
      "contract_months": null,
      "source_url": "https://www.alexela.ee/et/elekter",
-     "fetched_at": "2026-09-10T08:22:57Z"
+     "fetched_at": "2026-09-11T08:17:30Z"
     },
     {
      "id": "alexela-paindlik-fiks",
@@ -49,7 +49,7 @@
      "monthly_fee_cents": 161,
      "contract_months": null,
      "source_url": "https://www.alexela.ee/et/elekter",
-     "fetched_at": "2026-09-10T08:22:57Z"
+     "fetched_at": "2026-09-11T08:17:30Z"
     },
     {
      "id": "alexela-fikseeritud-hinnaga-elekter",
@@ -64,7 +64,7 @@
      "monthly_fee_cents": 163,
      "contract_months": null,
      "source_url": "https://www.alexela.ee/et/elekter",
-     "fetched_at": "2026-09-10T08:22:57Z"
+     "fetched_at": "2026-09-11T08:17:30Z"
     },
     {
      "id": "alexela-borsihinnaga-elekter",
@@ -79,7 +79,7 @@
      "monthly_fee_cents": 163,
      "contract_months": null,
      "source_url": "https://www.alexela.ee/et/elekter",
-     "fetched_at": "2026-09-10T08:22:57Z"
+     "fetched_at": "2026-09-11T08:17:30Z"
     }
    ]
   },
@@ -100,7 +100,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 9,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-kasulik-klops-12m",
@@ -115,7 +115,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 12,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-kasulik-klops-24m",
@@ -130,7 +130,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 24,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-kasulik-klops-36m",
@@ -145,7 +145,7 @@
      "monthly_fee_cents": 275,
      "contract_months": 36,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-vaike-klops-9m",
@@ -160,7 +160,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 9,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-vaike-klops-12m",
@@ -175,7 +175,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 12,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-vaike-klops-24m",
@@ -190,7 +190,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 24,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-vaike-klops-36m",
@@ -205,7 +205,7 @@
      "monthly_fee_cents": 275,
      "contract_months": 36,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-kaljukindel-klops",
@@ -220,7 +220,7 @@
      "monthly_fee_cents": 292,
      "contract_months": null,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-paindlik-klops-3m",
@@ -235,7 +235,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 3,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-paindlik-klops-9m",
@@ -250,7 +250,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 9,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-paindlik-klops-12m",
@@ -265,7 +265,7 @@
      "monthly_fee_cents": 154,
      "contract_months": 12,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "elektrum-borsi-klops",
@@ -280,7 +280,7 @@
      "monthly_fee_cents": 154,
      "contract_months": null,
      "source_url": "https://www.elektrum.ee/ee/eraklient/elekter/elektripaketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     }
    ]
   },
@@ -301,7 +301,7 @@
      "monthly_fee_cents": 0,
      "contract_months": null,
      "source_url": "https://elenger.ee/en/estonian-gas/electricity/",
-     "fetched_at": "2026-09-10T08:23:02Z"
+     "fetched_at": "2026-09-11T08:17:35Z"
     }
    ]
   },
@@ -322,7 +322,7 @@
      "monthly_fee_cents": 165,
      "contract_months": null,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-spot-gr",
@@ -337,13 +337,13 @@
      "monthly_fee_cents": 165,
      "contract_months": null,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-fix-36m-gr",
      "name": "Kindel Roheline (36 kuud)",
      "type": "fixed",
-     "rate_cents_kwh": 10.685,
+     "rate_cents_kwh": 11.105,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
@@ -352,13 +352,13 @@
      "monthly_fee_cents": 165,
      "contract_months": 36,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-fix-12m-gr",
      "name": "Kindel Roheline (12 kuud)",
      "type": "fixed",
-     "rate_cents_kwh": 12.54,
+     "rate_cents_kwh": 13.065,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
@@ -367,13 +367,13 @@
      "monthly_fee_cents": 165,
      "contract_months": 12,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-fix-6m-bl",
      "name": "Kindel (6 kuud)",
      "type": "fixed",
-     "rate_cents_kwh": 14.718,
+     "rate_cents_kwh": 15.726,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
@@ -382,13 +382,13 @@
      "monthly_fee_cents": 165,
      "contract_months": 6,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-fix-6m-gr",
      "name": "Kindel Roheline (6 kuud)",
      "type": "fixed",
-     "rate_cents_kwh": 14.879,
+     "rate_cents_kwh": 15.927,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
@@ -397,13 +397,13 @@
      "monthly_fee_cents": 165,
      "contract_months": 6,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-fix-12m-bl",
      "name": "Kindel (12 kuud)",
      "type": "fixed",
-     "rate_cents_kwh": 12.339,
+     "rate_cents_kwh": 12.863,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
@@ -412,13 +412,13 @@
      "monthly_fee_cents": 165,
      "contract_months": 12,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     },
     {
      "id": "enefit-ee-fix-36m-bl",
      "name": "Kindel (36 kuud)",
      "type": "fixed",
-     "rate_cents_kwh": 10.476,
+     "rate_cents_kwh": 10.887,
      "margin_cents_kwh": null,
      "day_rate_cents_kwh": null,
      "night_rate_cents_kwh": null,
@@ -427,7 +427,7 @@
      "monthly_fee_cents": 165,
      "contract_months": 36,
      "source_url": "https://www.enefit.ee/et/era/elekter/elektrileping-ja-paketid",
-     "fetched_at": "2026-09-10T08:22:59Z"
+     "fetched_at": "2026-09-11T08:17:32Z"
     }
    ]
   },
@@ -448,7 +448,7 @@
      "monthly_fee_cents": 120,
      "contract_months": 8,
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
-     "fetched_at": "2026-09-10T08:23:00Z"
+     "fetched_at": "2026-09-11T08:17:33Z"
     },
     {
      "id": "viru-kindel-1tar",
@@ -463,7 +463,7 @@
      "monthly_fee_cents": 120,
      "contract_months": 8,
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
-     "fetched_at": "2026-09-10T08:23:00Z"
+     "fetched_at": "2026-09-11T08:17:33Z"
     },
     {
      "id": "viru-vaba-korter",
@@ -478,7 +478,7 @@
      "monthly_fee_cents": 142,
      "contract_months": null,
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
-     "fetched_at": "2026-09-10T08:23:00Z"
+     "fetched_at": "2026-09-11T08:17:33Z"
     },
     {
      "id": "viru-vaba-maja",
@@ -493,7 +493,7 @@
      "monthly_fee_cents": 0,
      "contract_months": null,
      "source_url": "https://viruev.ee/elektrimuuk/elektrienergia-pakett/",
-     "fetched_at": "2026-09-10T08:23:00Z"
+     "fetched_at": "2026-09-11T08:17:33Z"
     }
    ]
   }
